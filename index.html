@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Estudio Demo — Portafolio Interactivo</title>
+<meta name="description" content="Replica libre de derechos inspirada en un portafolio interactivo. Lista para GitHub Pages." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Preloader (ligero) -->
+<div class="preloader" id="preloader" aria-live="polite">
+<div class="digits" id="loaderDigits">00</div>
+</div>
+
+
+<!-- Header -->
+<header>
+<div class="header-inner">
+<a href="#inicio" class="brand" aria-label="Inicio">
+<span class="mark" aria-hidden="true"></span>
+<span>Estudio Demo</span>
+</a>
+<div class="header-actions">
+<button class="btn --primary" id="talkBtn" aria-expanded="false">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h6"/></svg>
+<span>Hablemos</span>
+</button>
+<button class="burger" id="burger" aria-label="Menú" aria-expanded="false">
+<span class="burger-lines"></span>
+</button>
+</div>
+</div>
+<!-- Flyout menu -->
+<nav class="menu" aria-label="Navegación" id="menu">
+<div class="menu-card" id="menuLinks">
+<a href="#proyectos">Proyectos</a>
+<a href="#clientes">Clientes</a>
+<a href="#capacidades">Capacidades</a>
+<a href="#contacto">Contacto</a>
+</div>
+<div class="menu-card" id="menuNews">
+<strong>Newsletter</strong>
+<form class="newsletter" onsubmit="event.preventDefault(); alert('¡Gracias! (demo)');">
+<input type="email" placeholder="tu@email.com" aria-label="Correo" required />
+<button type="submit">Enviar</button>
+</form>
+</div>
+</nav>
+</header>
+
+
+</html>
