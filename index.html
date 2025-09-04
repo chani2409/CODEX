@@ -1,56 +1,193 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Estudio Demo — Portafolio Interactivo</title>
-<meta name="description" content="Replica libre de derechos inspirada en un portafolio interactivo. Lista para GitHub Pages." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estudio Demo — Portafolio Interactivo</title>
+  <meta name="description" content="Replica libre de derechos inspirada en un portafolio interactivo. Lista para GitHub Pages." />
+  <!-- Fuentes abiertas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- Preloader (ligero) -->
-<div class="preloader" id="preloader" aria-live="polite">
-<div class="digits" id="loaderDigits">00</div>
-</div>
+  <!-- Lienzos 3D -->
+  <canvas id="fx3d" aria-hidden="true"></canvas>
+  <canvas id="fx3d-extra" aria-hidden="true"></canvas>
 
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="brand" aria-label="Inicio">
+        <span class="mark" aria-hidden="true"></span>
+        <span>Estudio Demo</span>
+      </a>
+      <div class="header-actions">
+        <button class="btn --primary" id="talkBtn" aria-expanded="false" data-magnetic="0.3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h6"/></svg>
+          <span>Hablemos</span>
+        </button>
+        <button class="burger" id="burger" aria-label="Menú" aria-expanded="false">
+          <span class="burger-lines"></span>
+        </button>
+      </div>
+    </div>
+    <!-- Flyout menu -->
+    <nav class="menu" aria-label="Navegación" id="menu">
+      <div class="menu-card" id="menuLinks">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#clientes">Clientes</a>
+        <a href="#capacidades">Capacidades</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="menu-card" id="menuNews">
+        <strong>Newsletter</strong>
+        <form class="newsletter" onsubmit="event.preventDefault(); alert('¡Gracias! (demo)');">
+          <input type="email" placeholder="tu@email.com" aria-label="Correo" required />
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </nav>
+  </header>
 
-<!-- Header -->
-<header>
-<div class="header-inner">
-<a href="#inicio" class="brand" aria-label="Inicio">
-<span class="mark" aria-hidden="true"></span>
-<span>Estudio Demo</span>
-</a>
-<div class="header-actions">
-<button class="btn --primary" id="talkBtn" aria-expanded="false">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h6"/></svg>
-<span>Hablemos</span>
-</button>
-<button class="burger" id="burger" aria-label="Menú" aria-expanded="false">
-<span class="burger-lines"></span>
-</button>
-</div>
-</div>
-<!-- Flyout menu -->
-<nav class="menu" aria-label="Navegación" id="menu">
-<div class="menu-card" id="menuLinks">
-<a href="#proyectos">Proyectos</a>
-<a href="#clientes">Clientes</a>
-<a href="#capacidades">Capacidades</a>
-<a href="#contacto">Contacto</a>
-</div>
-<div class="menu-card" id="menuNews">
-<strong>Newsletter</strong>
-<form class="newsletter" onsubmit="event.preventDefault(); alert('¡Gracias! (demo)');">
-<input type="email" placeholder="tu@email.com" aria-label="Correo" required />
-<button type="submit">Enviar</button>
-</form>
-</div>
-</nav>
-</header>
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator" aria-hidden="true"><div class="bar" id="scrollBar"></div></div>
 
+  <!-- HERO -->
+  <section class="section hero" id="inicio">
+    <h1 class="hero-title reveal" id="heroTitle">
+      <span class="word">Ideas</span> <span class="word">claras,</span> <span class="word">impacto</span> <span class="word">real.</span>
+    </h1>
+    <div class="hero-cta">
+      <button class="watch-btn" id="watchReel" data-magnetic="0.4">
+        <span class="dot"></span>
+        Ver reel
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <div class="cross-strip" aria-hidden="true">
+      <span class="cross" style="left:0"></span>
+      <span class="cross" style="left:calc(33.33% - var(--cross-size)/2)"></span>
+      <span class="cross" style="left:calc(66.66% - var(--cross-size)/2)"></span>
+      <span class="cross" style="left:calc(100% - var(--cross-size))"></span>
+    </div>
+  </section>
 
-</html>
+  <!-- PROJECTS -->
+  <section class="section projects" id="proyectos">
+    <div class="projects-list">
+      <article class="project reveal" data-project="p1">
+        <div class="project-media tilt">
+          <img alt="Proyecto 1" src="https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=1600&auto=format&fit=crop" />
+        </div>
+        <h3 class="project-title">Experiencia 3D
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </h3>
+        <div class="project-meta mono">WebGL · Interactivo · 2025</div>
+      </article>
+      <article class="project reveal" data-project="p2">
+        <div class="project-media tilt">
+          <img alt="Proyecto 2" src="https://images.unsplash.com/photo-1527698266440-12104e498b76?q=80&w=1600&auto=format&fit=crop" />
+        </div>
+        <h3 class="project-title">Sitio de Producto
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </h3>
+        <div class="project-meta mono">Animación · UX · 2025</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section class="clients" id="clientes">
+    <div class="section">
+      <div class="clients-head reveal">
+        <h2 class="clients-title">Clientes</h2>
+        <p class="clients-desc">Selección de marcas reales/ficticias para esta demo. Logotipos con SVG neutros.</p>
+      </div>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track" id="mq1">
+          <div class="client-logo"></div><div class="client-logo"></div><div class="client-logo"></div>
+          <div class="client-logo"></div><div class="client-logo"></div><div class="client-logo"></div>
+          <div class="client-logo"></div><div class="client-logo"></div><div class="client-logo"></div>
+        </div>
+      </div>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track" id="mq2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section class="section cap" id="capacidades">
+    <h2 class="cap-title reveal">Capacidades</h2>
+    <div class="cap-grid">
+      <div class="card">
+        <div class="card-inner tilt">
+          <div class="card-face">
+            <div class="card-head"><h3 class="card-title">Estrategia</h3><div class="card-letter">A</div></div>
+            <ul class="card-list"><li>Research</li><li>Arquitectura</li><li>OKRs</li></ul>
+            <div class="muted mono">hover para girar</div>
+          </div>
+          <div class="card-face back">
+            <div class="card-head"><h3 class="card-title">Estrategia</h3><div class="card-letter">A</div></div>
+            <ul class="card-list"><li>Workshops</li><li>Benchmark</li><li>Pruebas</li></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner tilt">
+          <div class="card-face">
+            <div class="card-head"><h3 class="card-title">Diseño</h3><div class="card-letter">B</div></div>
+            <ul class="card-list"><li>UI / UX</li><li>Design systems</li><li>Prototipos</li></ul>
+            <div class="muted mono">hover para girar</div>
+          </div>
+          <div class="card-face back">
+            <div class="card-head"><h3 class="card-title">Diseño</h3><div class="card-letter">B</div></div>
+            <ul class="card-list"><li>Accesibilidad</li><li>Animación</li><li>Motion</li></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner tilt">
+          <div class="card-face">
+            <div class="card-head"><h3 class="card-title">Código</h3><div class="card-letter">C</div></div>
+            <ul class="card-list"><li>Frontend</li><li>APIs</li><li>Performance</li></ul>
+            <div class="muted mono">hover para girar</div>
+          </div>
+          <div class="card-face back">
+            <div class="card-head"><h3 class="card-title">Código</h3><div class="card-letter">C</div></div>
+            <ul class="card-list"><li>Tooling</li><li>Testing</li><li>DevOps</li></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner tilt">
+          <div class="card-face">
+            <div class="card-head"><h3 class="card-title">Contenido</h3><div class="card-letter">D</div></div>
+            <ul class="card-list"><li>Narrativa</li><li>SEO</li><li>Docs</li></ul>
+            <div class="muted mono">hover para girar</div>
+          </div>
+          <div class="card-face back">
+            <div class="card-head"><h3 class="card-title">Contenido</h3><div class="card-letter">D</div></div>
+            <ul class="card-list"><li>Guías</li><li>Catálogos</li><li>Playbooks</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contacto">
+    <div class="footer-grid">
+      <div class="foot-brand reveal">
+        <div class="brand"><span class="mark"></span><span>Estudio Demo</span></div>
+        <p class="muted">Hecho con ♥ como demo libre de derechos. Inspirado en el layout compartido, sin activos propietarios.</p>
+      </div>
+      <div class="foot-news reveal">
+        <strong>Newsletter</strong>
+        <
