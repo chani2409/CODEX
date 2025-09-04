@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Estudio Demo — Portafolio Interactivo</title>
-  <meta name="description" content="Replica libre de derechos inspirada en un portafolio interactivo. Lista para GitHub Pages." />
+  <meta name="description" content="Demo libre de derechos inspirada en un portafolio interactivo. Lista para GitHub Pages." />
   <!-- Fuentes abiertas -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,20 +13,19 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Lienzos 3D -->
+  <!-- Canvas 3D (fondo) -->
   <canvas id="fx3d" aria-hidden="true"></canvas>
-  <canvas id="fx3d-extra" aria-hidden="true"></canvas>
 
   <!-- Header -->
   <header>
     <div class="header-inner">
-      <a href="#" class="brand" aria-label="Inicio">
+      <a href="#inicio" class="brand" aria-label="Inicio">
         <span class="mark" aria-hidden="true"></span>
         <span>Estudio Demo</span>
       </a>
       <div class="header-actions">
         <button class="btn --primary" id="talkBtn" aria-expanded="false" data-magnetic="0.3">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h6"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h6"/></svg>
           <span>Hablemos</span>
         </button>
         <button class="burger" id="burger" aria-label="Menú" aria-expanded="false">
@@ -36,13 +35,14 @@
     </div>
     <!-- Flyout menu -->
     <nav class="menu" aria-label="Navegación" id="menu">
-      <div class="menu-card" id="menuLinks">
+      <div class="menu-card">
+        <a href="#mejoras">Mejoras</a>
         <a href="#proyectos">Proyectos</a>
         <a href="#clientes">Clientes</a>
         <a href="#capacidades">Capacidades</a>
         <a href="#contacto">Contacto</a>
       </div>
-      <div class="menu-card" id="menuNews">
+      <div class="menu-card">
         <strong>Newsletter</strong>
         <form class="newsletter" onsubmit="event.preventDefault(); alert('¡Gracias! (demo)');">
           <input type="email" placeholder="tu@email.com" aria-label="Correo" required />
@@ -61,10 +61,10 @@
       <span class="word">Ideas</span> <span class="word">claras,</span> <span class="word">impacto</span> <span class="word">real.</span>
     </h1>
     <div class="hero-cta">
-      <button class="watch-btn" id="watchReel" data-magnetic="0.4">
+      <button class="watch-btn" id="watchReel" data-magnetic="0.45">
         <span class="dot"></span>
         Ver reel
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
     </div>
     <div class="cross-strip" aria-hidden="true">
@@ -75,6 +75,39 @@
     </div>
   </section>
 
+  <!-- MEJORAS VISUALES + ASFIGES -->
+  <section class="section improvements" id="mejoras" aria-label="Mejoras visuales y de interacción">
+    <div class="improvements-bg" aria-hidden="true"></div>
+    <h2 class="improvements-title reveal">Mejoras visuales</h2>
+    <p class="improvements-desc reveal">Auroras reactivas, tarjetas glass con halo, y figuras 3D más realistas y vertebradas que responden al mouse.</p>
+
+    <div class="improve-grid">
+      <article class="improve-card tilt reveal">
+        <div class="halo"></div>
+        <h3>Glass + Neon</h3>
+        <p>Tarjetas con borde degradado y brillo sutil al pasar el mouse.</p>
+      </article>
+      <article class="improve-card tilt reveal">
+        <div class="halo"></div>
+        <h3>Aurora reactiva</h3>
+        <p>Fondo con gradientes que siguen el puntero y el scroll.</p>
+      </article>
+      <article class="improve-card tilt reveal">
+        <div class="halo"></div>
+        <h3>3D vertebrado</h3>
+        <p>Columnas “óseas” con discos y tendones, materiales físicos y movimiento fluido.</p>
+      </article>
+      <article class="improve-card tilt reveal">
+        <div class="halo"></div>
+        <h3>Orbes & cardumen</h3>
+        <p>Órbitas de cristal y cápsulas orgánicas que reaccionan a tu cursor.</p>
+      </article>
+    </div>
+
+    <!-- Título pedido -->
+    <h2 class="asfiges-title" aria-label="ASFIGES">ASFIGES</h2>
+  </section>
+
   <!-- PROJECTS -->
   <section class="section projects" id="proyectos">
     <div class="projects-list">
@@ -83,7 +116,7 @@
           <img alt="Proyecto 1" src="https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=1600&auto=format&fit=crop" />
         </div>
         <h3 class="project-title">Experiencia 3D
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </h3>
         <div class="project-meta mono">WebGL · Interactivo · 2025</div>
       </article>
@@ -92,7 +125,7 @@
           <img alt="Proyecto 2" src="https://images.unsplash.com/photo-1527698266440-12104e498b76?q=80&w=1600&auto=format&fit=crop" />
         </div>
         <h3 class="project-title">Sitio de Producto
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </h3>
         <div class="project-meta mono">Animación · UX · 2025</div>
       </article>
@@ -104,7 +137,7 @@
     <div class="section">
       <div class="clients-head reveal">
         <h2 class="clients-title">Clientes</h2>
-        <p class="clients-desc">Selección de marcas reales/ficticias para esta demo. Logotipos con SVG neutros.</p>
+        <p class="clients-desc">Logotipos neutrales generados con SVG para esta demo.</p>
       </div>
       <div class="marquee" aria-hidden="true">
         <div class="marquee-track" id="mq1">
@@ -141,7 +174,7 @@
         <div class="card-inner tilt">
           <div class="card-face">
             <div class="card-head"><h3 class="card-title">Diseño</h3><div class="card-letter">B</div></div>
-            <ul class="card-list"><li>UI / UX</li><li>Design systems</li><li>Prototipos</li></ul>
+            <ul class="card-list"><li>UI/UX</li><li>Design systems</li><li>Prototipos</li></ul>
             <div class="muted mono">hover para girar</div>
           </div>
           <div class="card-face back">
@@ -186,7 +219,7 @@
     <div class="footer-grid">
       <div class="foot-brand reveal">
         <div class="brand"><span class="mark"></span><span>Estudio Demo</span></div>
-        <p class="muted">Hecho con ♥ como demo libre de derechos. Inspirado en el layout compartido, sin activos propietarios.</p>
+        <p class="muted">Demo libre de derechos. Inspirada en el layout compartido, sin activos propietarios.</p>
       </div>
       <div class="foot-news reveal">
         <strong>Newsletter</strong>
