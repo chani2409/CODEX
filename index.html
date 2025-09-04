@@ -190,4 +190,35 @@
       </div>
       <div class="foot-news reveal">
         <strong>Newsletter</strong>
-        <
+        <form class="newsletter" onsubmit="event.preventDefault(); alert('¡Gracias! (demo)');">
+          <input type="email" placeholder="tu@email.com" aria-label="Correo" required />
+          <button type="submit">Enviar</button>
+        </form>
+        <div class="foot-bottom">
+          <span class="mono">© <span id="year"></span> Estudio Demo</span>
+          <a class="mono" href="#inicio">Volver arriba ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- VIDEO OVERLAY -->
+  <div class="video-overlay" id="videoOverlay" role="dialog" aria-modal="true" aria-label="Reel de video">
+    <div class="video-frame">
+      <iframe id="yt" width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?enablejsapi=1&rel=0" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <div class="video-controls">
+        <button class="vo-btn" id="voPlay">Play/Pause</button>
+        <div class="progress"><i id="voProg"></i></div>
+        <button class="vo-btn" id="voClose">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cursores personalizados -->
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+  <!-- JS (ESM) -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
